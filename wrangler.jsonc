@@ -1,0 +1,49 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "swoony",
+  "main": "./worker/index.ts",
+  "compatibility_date": "2026-11-18",
+  "workers_dev": false,
+  "preview_urls": false,
+  "assets": {
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*", "/s-admin", "/s-admin/*"],
+  },
+  "observability": {
+    "enabled": true,
+  },
+  "upload_source_maps": true,
+  "triggers": { "crons": ["0 3 * * *"] },
+  "kv_namespaces": [{ "binding": "BANS" }],
+  "send_email": [{ "name": "ALERTS" }],
+  "d1_databases": [{ "binding": "DB", "database_name": "swoony", "migrations_dir": "migrations" }],
+  "r2_buckets": [{ "binding": "ARCHIVE", "bucket_name": "swoony-archive" }],
+  "durable_objects": {
+    "bindings": [
+      { "name": "LOBBY", "class_name": "Lobby" },
+      { "name": "CHAT_ROOM", "class_name": "ChatRoom" },
+    ],
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Lobby", "ChatRoom"] }],
+  "vars": {
+    "TURNSTILE_HOSTNAMES": "swoony.chat",
+    "DEV_INSECURE_COOKIES": "0",
+    "RETAIN_ALL_CONTENT": "true",
+    "ALLOW_TEST_RESET": "0",
+  },
+  "secrets": {
+    "required": [
+      "COOKIE_SECRETS",
+      "IDENTITY_HASH_SECRET",
+      "TURNSTILE_SECRET",
+      "RETENTION_KEY",
+      "ADMIN_TOKEN",
+      "ACCESS_TEAM_DOMAIN",
+      "ACCESS_AUD",
+      "ADMIN_EMAILS",
+      "ALERT_EMAIL_FROM",
+      "ALERT_EMAIL_TO",
+    ],
+  },
+}

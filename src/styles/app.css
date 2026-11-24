@@ -1,0 +1,41 @@
+@import "tailwindcss";
+@import "@fontsource-variable/plus-jakarta-sans";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@import "./tokens.css";
+
+@utility h-app {
+  height: var(--app-height, 100dvh);
+}
+
+@utility pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+@layer components {
+  .letter-tile {
+    background-color: hsl(var(--tile-hue) 75% 93%);
+    color: hsl(var(--tile-hue) 45% 32%);
+  }
+  .dark .letter-tile {
+    background-color: hsl(var(--tile-hue) 28% 24%);
+    color: hsl(var(--tile-hue) 75% 84%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}

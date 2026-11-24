@@ -1,0 +1,10 @@
+COOKIE_SECRETS=dev-only-cookie-secret-at-least-32-chars
+IDENTITY_HASH_SECRET=dev-only-hash-secret-at-least-32-chars
+TURNSTILE_SECRET=1x0000000000000000000000000000000AA
+RETENTION_KEY=ZGV2LW9ubHktcmV0ZW50aW9uLWtleS0zMi1ieXRlcyE=
+ADMIN_TOKEN=dev-only-admin-token-at-least-32-chars
+ACCESS_TEAM_DOMAIN=https://dev.cloudflareaccess.com
+ACCESS_AUD=dev-only-aud
+ADMIN_EMAILS=dev@localhost
+ALERT_EMAIL_FROM=
+ALERT_EMAIL_TO=

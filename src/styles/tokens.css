@@ -1,0 +1,119 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --brand-from: #db2777;
+  --brand-to: #7c3aed;
+  --bg: #fbf9fa;
+  --surface: #ffffff;
+  --border: #eee9ee;
+  --text: #17131a;
+  --muted-foreground: #6b6370;
+  --muted: #f5f1f5;
+  --radius: 16px;
+  --link: #be185d;
+  --canvas: #f3eef5;
+  --glow-strength: 11%;
+  --panel-shadow: 0 1px 2px rgb(23 19 26 / 0.04), 0 14px 36px -14px rgb(124 58 237 / 0.2);
+
+  --background: var(--bg);
+  --foreground: var(--text);
+  --card: var(--surface);
+  --card-foreground: var(--text);
+  --popover: var(--surface);
+  --popover-foreground: var(--text);
+  --primary: var(--brand-from);
+  --primary-foreground: #ffffff;
+  --secondary: var(--muted);
+  --secondary-foreground: var(--text);
+  --accent: var(--muted);
+  --accent-foreground: var(--text);
+  --destructive: #dc2626;
+  --input: var(--border);
+  --ring: var(--brand-to);
+}
+
+.dark {
+  --link: #f472b6;
+  --bg: #14101a;
+  --surface: #1d1724;
+  --border: #2c2433;
+  --text: #f4f0f6;
+  --muted-foreground: #a79fb0;
+  --muted: #251e2c;
+  --destructive: #f87171;
+  --ring: #a78bfa;
+  --canvas: #0c0910;
+  --glow-strength: 14%;
+  --panel-shadow: 0 0 0 1px rgb(255 255 255 / 0.02), 0 18px 44px -18px rgb(0 0 0 / 0.75);
+}
+
+@theme inline {
+  --font-sans: "Plus Jakarta Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-sans);
+  --color-brand-from: var(--brand-from);
+  --color-brand-to: var(--brand-to);
+  --color-surface: var(--surface);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.5);
+  --radius-md: calc(var(--radius) * 0.75);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.25);
+  --radius-2xl: calc(var(--radius) * 1.5);
+  --radius-3xl: calc(var(--radius) * 2);
+  --radius-4xl: calc(var(--radius) * 2.5);
+}
+
+@utility bg-brand {
+  background-image: linear-gradient(135deg, var(--brand-from), var(--brand-to));
+}
+
+@utility bg-canvas {
+  background-color: var(--canvas);
+  background-image:
+    radial-gradient(
+      55rem 38rem at 0% 0%,
+      color-mix(in oklab, var(--brand-from) var(--glow-strength), transparent),
+      transparent 65%
+    ),
+    radial-gradient(
+      55rem 38rem at 100% 100%,
+      color-mix(in oklab, var(--brand-to) var(--glow-strength), transparent),
+      transparent 65%
+    );
+}
+
+@utility shadow-panel {
+  box-shadow: var(--panel-shadow);
+}
+
+@utility bg-brand-wash {
+  background-image: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--brand-from) 12%, transparent),
+    color-mix(in oklab, var(--brand-to) 6%, transparent) 55%,
+    transparent
+  );
+}
+
+@utility text-brand {
+  background-image: linear-gradient(135deg, var(--brand-from), var(--brand-to));
+  background-clip: text;
+  color: transparent;
+}

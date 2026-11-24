@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /chat/
+Disallow: /api/
+
+Sitemap: https://swoony.chat/sitemap.xml
