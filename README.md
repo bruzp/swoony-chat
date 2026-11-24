@@ -113,3 +113,7 @@ Around 85 test files and 43k lines of TypeScript.
 | [docs/admin-plan.md](docs/admin-plan.md) | Admin console design |
 | [docs/deployment.md](docs/deployment.md) | Deploying and running in production |
 | [docs/visual-guide.html](docs/visual-guide.html) | Visual walkthrough of pages, chat flow and admin |
+
+## License
+
+[MIT](LICENSE)
